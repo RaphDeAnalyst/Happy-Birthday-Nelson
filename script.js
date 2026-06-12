@@ -171,6 +171,7 @@ const polaroid = document.querySelector(".polaroid");
 async function startMemories() {
   showSection(sections.memories);
   polaroid.style.opacity = "0";
+  const confettiRain = setInterval(() => burstConfetti(4), 900); // gentle rain while the film plays
   await delay(600);
   for (const photo of photoStates) {
     const ok = await photo.loaded;
@@ -182,8 +183,9 @@ async function startMemories() {
     memoryCaption.textContent = "";
     polaroid.style.opacity = "1";
     await delay(600);                        // fade in new one
-    await delay(2600);                       // hold the moment, no tapping
+    await delay(1500);                       // hold the moment, no tapping
   }
+  clearInterval(confettiRain);
   memoryNext.classList.remove("hidden");
   await waitForTap(sections.memories);
   memoryNext.classList.add("hidden");
