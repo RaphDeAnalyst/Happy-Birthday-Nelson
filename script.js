@@ -182,8 +182,7 @@ async function startMemories() {
     memoryCaption.textContent = "";
     polaroid.style.opacity = "1";
     await delay(600);                        // fade in new one
-    await typeText(memoryCaption, photo.caption, 55);
-    await delay(2200);                       // hold the moment, no tapping
+    await delay(2600);                       // hold the moment, no tapping
   }
   memoryNext.classList.remove("hidden");
   await waitForTap(sections.memories);
@@ -220,26 +219,32 @@ function buildCandles(n) {
     const f = document.createElement("div");
     f.className = "flame";
     c.appendChild(f);
-    c.addEventListener("click", () => extinguish(f));
+    c.addEventListener("click", blowOutAllCandles);
     candlesBox.appendChild(c);
   }
 }
 
-function extinguish(flame) {
-  if (cakeDone || flame.classList.contains("out")) return;
-  flame.classList.add("out");
-  candlesLeft--;
-  if (candlesLeft <= 0) runFinale();
+// one blow or one tap puts out every candle (staggered for effect)
+async function blowOutAllCandles() {
+  if (cakeDone) return;
+  cakeDone = true;
+  blowHint.classList.add("hidden");
+  const flames = candlesBox.querySelectorAll(".flame:not(.out)");
+  for (const f of flames) {
+    f.classList.add("out");
+    await delay(150);
+  }
+  runFinale();
 }
 
-function extinguishNext() {
-  const lit = candlesBox.querySelector(".flame:not(.out)");
-  if (lit) extinguish(lit);
+function extinguishNext() {  // kept as the mic-detection entry point
+  blowOutAllCandles();
 }
 
 async function runFinale() {
   cakeDone = true;
   blowHint.classList.add("hidden");
+  wishLine.classList.add("hidden");
   await delay(700);
   fireworks();
   burstConfetti(80);

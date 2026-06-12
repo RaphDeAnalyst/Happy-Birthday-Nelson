@@ -89,10 +89,7 @@ button:hover {
   transition: transform .6s ease, opacity .6s ease;
 }
 .polaroid img { width: 100%; height: min(58vw, 300px); object-fit: cover; display: block; }
-.polaroid-caption {
-  color: #3a3326; font-size: 1rem; margin-top: 12px;
-  min-height: 3.2em; font-style: italic;
-}
+.polaroid-caption { display: none; }  /* film plays without captions */
 
 /* CAKE */
 .cake-wrap { position: relative; width: 240px; margin: 36px auto 0; }
