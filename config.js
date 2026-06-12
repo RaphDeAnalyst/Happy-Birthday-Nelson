@@ -15,6 +15,11 @@ var CONFIG = {
   // Local midnight of this date gates the countdown (YYYY-MM-DD).
   birthdayDate: "2026-06-13",
 
+  // Show the midnight countdown when opened before the birthday?
+  // false = the plain link always goes straight to the experience
+  // (?demo=before still forces the countdown for rehearsal).
+  showCountdown: false,
+
   question: {
     prompt: "Do you know how much you mean to me?",
     choices: ["A little?", "A lot?"],

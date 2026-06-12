@@ -108,6 +108,9 @@ function countdownTarget() {
 }
 
 function shouldShowCountdown() {
+  // config can disable the countdown for the plain link;
+  // ?demo=before still forces it for rehearsal
+  if (demo !== "before" && cfg.showCountdown === false) return false;
   const t = countdownTarget();
   return !!t && Date.now() < t.getTime();
 }
