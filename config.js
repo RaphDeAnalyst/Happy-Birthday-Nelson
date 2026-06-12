@@ -50,11 +50,7 @@ var CONFIG = {
     { src: "photos/07.jpg", caption: "My favourite view." },
     { src: "photos/08.jpg", caption: "Side by side, always." },
     { src: "photos/09.jpg", caption: "The little adventures." },
-    { src: "photos/10.jpg", caption: "Home isn't a place." },
-    { src: "photos/11.jpg", caption: "Still my favourite person to do nothing with." },
-    { src: "photos/12.jpg", caption: "Every photo, a reason to smile." },
-    { src: "photos/13.jpg", caption: "How far we've come." },
-    { src: "photos/14.jpg", caption: "And every day since — my favourite person." },
+    { src: "photos/10.jpg", caption: "And every day since — my favourite person." },
   ],
 
   music: { src: "piano.mp3", volume: 0.4 },

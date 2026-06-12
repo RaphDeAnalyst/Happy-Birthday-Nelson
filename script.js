@@ -170,19 +170,24 @@ const polaroid = document.querySelector(".polaroid");
 
 async function startMemories() {
   showSection(sections.memories);
+  polaroid.style.opacity = "0";
   await delay(600);
   for (const photo of photoStates) {
     const ok = await photo.loaded;
     if (!ok) continue;                       // broken image: skip chapter silently
+    polaroid.style.opacity = "0";
+    await delay(600);                        // fade out previous polaroid
     polaroid.style.transform = `rotate(${(Math.random() * 6 - 3).toFixed(1)}deg)`;
     memoryPhoto.src = photo.src;
     memoryCaption.textContent = "";
-    await delay(500);
+    polaroid.style.opacity = "1";
+    await delay(600);                        // fade in new one
     await typeText(memoryCaption, photo.caption, 55);
-    memoryNext.classList.remove("hidden");
-    await waitForTap(sections.memories);
-    memoryNext.classList.add("hidden");
+    await delay(2200);                       // hold the moment, no tapping
   }
+  memoryNext.classList.remove("hidden");
+  await waitForTap(sections.memories);
+  memoryNext.classList.add("hidden");
   startCake();
 }
 
