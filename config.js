@@ -6,7 +6,8 @@
         portrait or square crops look best) and update `photos`.
    ============================================================ */
 var CONFIG = {
-  recipientName: "Nelson",
+  // used in the cake wish line: "Make a wish, <recipientName>… then blow."
+  recipientName: "my love",
   recipientFullName: "Nelson Chukwuebuka",
 
   // The client's sign-off, shown at the very end. e.g. "— Ada ❤️"
