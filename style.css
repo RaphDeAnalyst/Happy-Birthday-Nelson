@@ -1,0 +1,173 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --gold: #d4af37;
+  --gold-soft: #f5e6a8;
+  --cream: #f0e6d2;
+  --bg-deep: #0a0a14;
+  --bg-plum: #141024;
+}
+
+body {
+  background: linear-gradient(165deg, var(--bg-deep) 0%, var(--bg-plum) 100%);
+  min-height: 100vh;
+  color: var(--cream);
+  font-family: Georgia, "Times New Roman", serif;
+  overflow: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(212,175,55,0.07) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+section {
+  position: absolute; inset: 0;
+  height: 100vh; height: 100dvh;
+  display: flex; justify-content: center; align-items: center;
+  text-align: center; padding: 24px;
+  opacity: 0; pointer-events: none;
+  transition: opacity 1.5s ease;
+}
+section.active { opacity: 1; pointer-events: auto; z-index: 2; }
+
+.content { max-width: 700px; width: 100%; }
+
+h1, h2 { font-size: 1.9rem; margin-bottom: 20px; letter-spacing: 1px; font-weight: normal; }
+.note { font-size: .9rem; opacity: .7; margin-top: 8px; }
+
+button {
+  margin-top: 25px; padding: 12px 34px;
+  border: 1px solid var(--gold); background: transparent;
+  color: var(--gold); font-size: 1rem; font-family: inherit;
+  cursor: pointer; transition: .4s ease;
+}
+button:hover {
+  background: var(--gold); color: var(--bg-deep);
+  box-shadow: 0 0 25px rgba(212,175,55,.45);
+  transform: translateY(-3px);
+}
+
+.hidden { display: none !important; }
+
+/* COUNTDOWN */
+.label-line { font-style: italic; opacity: .75; margin-bottom: 28px; letter-spacing: 1px; }
+.timer { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+.unit span {
+  display: block; font-size: 2.6rem; color: var(--gold);
+  text-shadow: 0 0 18px rgba(212,175,55,.4);
+  min-width: 70px; font-variant-numeric: tabular-nums;
+}
+.unit label { font-size: .7rem; letter-spacing: 3px; text-transform: uppercase; opacity: .6; }
+
+/* QUESTION */
+.choices { margin-top: 30px; display: flex; gap: 20px; justify-content: center; }
+
+/* TYPEWRITER + LETTER */
+#typewriter { font-size: 1.3rem; line-height: 1.8; min-height: 200px; white-space: pre-line; }
+#letter .content { max-height: 88dvh; overflow-y: auto; }
+.cursor {
+  display: inline-block; width: 2px; background: var(--gold);
+  animation: blink 1s infinite; margin-left: 3px;
+}
+@keyframes blink { 0%,100% { opacity: 0; } 50% { opacity: 1; } }
+
+.continue-hint {
+  margin-top: 30px; font-size: .85rem; color: var(--gold);
+  opacity: .8; animation: pulse 2s infinite; cursor: pointer;
+}
+@keyframes pulse { 0%,100% { opacity: .35; } 50% { opacity: .9; } }
+
+/* MEMORIES */
+.polaroid {
+  background: #faf6ee; padding: 14px 14px 18px; margin: 0 auto;
+  width: min(78vw, 330px); transform: rotate(-2deg);
+  box-shadow: 0 12px 40px rgba(0,0,0,.5);
+  transition: transform .6s ease;
+}
+.polaroid img { width: 100%; height: min(58vw, 300px); object-fit: cover; display: block; }
+.polaroid-caption {
+  color: #3a3326; font-size: 1rem; margin-top: 12px;
+  min-height: 3.2em; font-style: italic;
+}
+
+/* CAKE */
+.cake-wrap { position: relative; width: 240px; margin: 36px auto 0; }
+.cake-layer { margin: 0 auto; border-radius: 8px 8px 4px 4px; position: relative; }
+.cake-layer.top  { width: 130px; height: 42px; background: linear-gradient(#4a3960, #38294b); }
+.cake-layer.mid  { width: 180px; height: 48px; background: linear-gradient(#3c2d50, #2c1f3b); }
+.cake-layer.base { width: 230px; height: 54px; background: linear-gradient(#32254a, #241a35); }
+.cake-layer::after {  /* gold icing line */
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 7px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-soft), var(--gold));
+  border-radius: 8px 8px 50% 50%;
+}
+.cake-plate { width: 260px; height: 12px; margin: 0 auto; background: #1f1b30; border-radius: 50%; }
+
+.candles { display: flex; justify-content: center; gap: 18px; height: 70px; align-items: flex-end; }
+.candle {
+  width: 9px; height: 46px; position: relative; cursor: pointer;
+  background: repeating-linear-gradient(45deg, #f5e6c8 0 6px, #e8c98a 6px 12px);
+  border-radius: 3px 3px 0 0;
+}
+.flame {
+  position: absolute; top: -18px; left: 50%; transform: translateX(-50%);
+  width: 13px; height: 18px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background: radial-gradient(circle at 50% 70%, #fff7d6 0%, #f5a623 55%, rgba(245,166,35,0) 100%);
+  box-shadow: 0 0 16px 4px rgba(245,200,80,.45);
+  animation: flicker .28s infinite alternate;
+}
+@keyframes flicker {
+  from { transform: translateX(-50%) scale(1) rotate(-2deg); }
+  to   { transform: translateX(-52%) scale(1.12) rotate(3deg); }
+}
+.flame.out { animation: none; opacity: 0; transition: opacity .4s; box-shadow: none; }
+
+/* FINALE */
+.finale { margin-top: 34px; transition: opacity 2s ease; }
+.finale.show { opacity: 1; }
+#finaleTitle {
+  background: linear-gradient(90deg, var(--gold), var(--gold-soft), var(--gold));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.signature { margin-top: 16px; font-size: 1rem; opacity: 0; transition: opacity 2.5s ease; }
+.signature.show { opacity: 1; }
+
+/* CELEBRATION LAYER */
+#celebration {
+  position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 5;
+}
+.confetti {
+  position: absolute; top: -20px; width: 8px; height: 14px;
+  background: var(--gold); opacity: .9;
+  animation: confettiFall linear forwards;
+}
+@keyframes confettiFall {
+  to { transform: translateY(105vh) rotate(720deg); opacity: 0; }
+}
+.spark {
+  position: absolute; bottom: -10px; width: 4px; height: 4px; border-radius: 50%;
+  background: var(--gold-soft); box-shadow: 0 0 8px 2px rgba(212,175,55,.5);
+  animation: sparkRise ease-in forwards;
+}
+@keyframes sparkRise {
+  to { transform: translateY(-110vh); opacity: 0; }
+}
+.spark-fly {
+  position: absolute; width: 5px; height: 5px; border-radius: 50%;
+  background: var(--gold-soft); box-shadow: 0 0 10px 2px rgba(212,175,55,.6);
+  animation: sparkFly 1.3s ease-out forwards;
+}
+@keyframes sparkFly {
+  to { transform: translate(var(--dx), var(--dy)); opacity: 0; }
+}
+
+@media (max-width: 480px) {
+  h1, h2 { font-size: 1.5rem; }
+  #typewriter { font-size: 1.1rem; }
+  .unit span { font-size: 2rem; min-width: 54px; }
+}

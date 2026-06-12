@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You 🎂</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="celebration"></div>
+
+<!-- ACT 1: INTRO -->
+<section class="active" id="intro">
+  <div class="content">
+    <h1>Before you continue…</h1>
+    <p>Find somewhere quiet.</p>
+    <p class="note">Turn your volume up or use earphones 🎧</p>
+    <button id="startBtn">Begin</button>
+  </div>
+</section>
+
+<!-- ACT 2: COUNTDOWN (conditional) -->
+<section id="countdown">
+  <div class="content">
+    <p class="label-line">Something is waiting for you…</p>
+    <div class="timer">
+      <div class="unit"><span id="cdDays">--</span><label>days</label></div>
+      <div class="unit"><span id="cdHours">--</span><label>hours</label></div>
+      <div class="unit"><span id="cdMins">--</span><label>minutes</label></div>
+      <div class="unit"><span id="cdSecs">--</span><label>seconds</label></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACT 3: QUESTION -->
+<section id="question">
+  <div class="content">
+    <h2 id="questionText"></h2>
+    <div class="choices hidden" id="choices"></div>
+  </div>
+</section>
+
+<!-- ACT 4: LETTER -->
+<section id="letter">
+  <div class="content">
+    <div id="typewriter"></div>
+    <p class="continue-hint hidden" id="letterNext">tap to continue ›</p>
+  </div>
+</section>
+
+<!-- ACT 5: MEMORIES -->
+<section id="memories">
+  <div class="content">
+    <div class="polaroid">
+      <img id="memoryPhoto" alt="A memory of us">
+      <div class="polaroid-caption" id="memoryCaption"></div>
+    </div>
+    <p class="continue-hint hidden" id="memoryNext">tap to continue ›</p>
+  </div>
+</section>
+
+<!-- ACT 6: CAKE -->
+<section id="cake">
+  <div class="content">
+    <h2 id="wishLine"></h2>
+    <div class="cake-wrap" id="cakeEl">
+      <div class="candles" id="candles"></div>
+      <div class="cake-layer top"></div>
+      <div class="cake-layer mid"></div>
+      <div class="cake-layer base"></div>
+      <div class="cake-plate"></div>
+    </div>
+    <p class="continue-hint hidden" id="blowHint">blow into your phone… or tap the flames 🕯️</p>
+    <div class="finale hidden" id="finale">
+      <h1 id="finaleTitle"></h1>
+      <div class="signature" id="signature"></div>
+    </div>
+  </div>
+</section>
+
+<audio id="bgMusic" loop></audio>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
