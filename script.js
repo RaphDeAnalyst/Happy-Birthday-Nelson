@@ -186,9 +186,7 @@ async function startMemories() {
     await delay(1500);                       // hold the moment, no tapping
   }
   clearInterval(confettiRain);
-  memoryNext.classList.remove("hidden");
-  await waitForTap(sections.memories);
-  memoryNext.classList.add("hidden");
+  await delay(400);          // a breath after the last photo, then straight to the cake
   startCake();
 }
 
