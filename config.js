@@ -33,10 +33,23 @@ var CONFIG = {
     "But before you make your wish… let me take you back through a few of my favourite moments of us.",
   ],
 
+  // Order = story order. Delete entries to shorten the journey;
+  // edit captions to match each actual photo.
   photos: [
-    { src: "photos/01.svg", caption: "Where it all began…" },
-    { src: "photos/02.svg", caption: "The day I knew you were special." },
-    { src: "photos/03.svg", caption: "And every day since — my favourite person." },
+    { src: "photos/01.jpg", caption: "Where it all began…" },
+    { src: "photos/02.jpg", caption: "The early days — when every hello felt new." },
+    { src: "photos/03.jpg", caption: "Already laughing at the same things." },
+    { src: "photos/04.jpg", caption: "The smile I fell for." },
+    { src: "photos/05.jpg", caption: "Some days are just ours." },
+    { src: "photos/06.jpg", caption: "Caught in the moment." },
+    { src: "photos/07.jpg", caption: "My favourite view." },
+    { src: "photos/08.jpg", caption: "Side by side, always." },
+    { src: "photos/09.jpg", caption: "The little adventures." },
+    { src: "photos/10.jpg", caption: "Home isn't a place." },
+    { src: "photos/11.jpg", caption: "Still my favourite person to do nothing with." },
+    { src: "photos/12.jpg", caption: "Every photo, a reason to smile." },
+    { src: "photos/13.jpg", caption: "How far we've come." },
+    { src: "photos/14.jpg", caption: "And every day since — my favourite person." },
   ],
 
   music: { src: "piano.mp3", volume: 0.4 },
