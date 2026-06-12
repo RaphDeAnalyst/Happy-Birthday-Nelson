@@ -35,7 +35,6 @@ var CONFIG = {
     "Happy Birthday, my love 🎂",
     "Today the world received its sweetest gift — you. And every day since you came into my life, I've been unwrapping that gift slowly: your laugh, your kindness, the way you make ordinary days feel warm.",
     "I hope this new year of your life is gentle with you and generous to you. I hope it gives you everything you quietly wish for.",
-    "But before you make your wish… let me take you back through a few of my favourite moments of us.",
   ],
 
   // Order = story order. Delete entries to shorten the journey;

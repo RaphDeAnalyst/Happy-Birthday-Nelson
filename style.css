@@ -88,7 +88,11 @@ button:hover {
   box-shadow: 0 12px 40px rgba(0,0,0,.5);
   transition: transform .6s ease, opacity .6s ease;
 }
-.polaroid img { width: 100%; height: min(58vw, 300px); object-fit: cover; display: block; }
+.polaroid img {
+  width: 100%; height: min(96vw, 380px);
+  object-fit: cover; object-position: center top;  /* keep heads in frame */
+  display: block;
+}
 .polaroid-caption { display: none; }  /* film plays without captions */
 
 /* CAKE */
